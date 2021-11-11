@@ -17,7 +17,6 @@ import math
 WINDOW_WIDTH =1000
 WINDOW_HEIGHT =1000
 
-
 # // angle of rotation for the camera direction
 angle = 0.0
 yAngle = 0.0
@@ -95,12 +94,83 @@ def drawCube():
 # 	}
 # 	glPopMatrix()
 
+def bed():
+    #bed headboard
+    glColor3f(0.20,0.03,0.00)
+    glPushMatrix()
+    glScalef(0.1, 0.5, 0.9)
+    glTranslatef(-2,-0.5,6)
+    drawCube()
+    glPopMatrix()
+    
+    #bed body
+    glColor3f(0.824, 0.706, 0.549)
+    glPushMatrix()
+    glScalef(1, 0.2, 0.9) #1, 0.2, 0.9
+    glTranslatef(0,-0.5,6.2)
+    drawCube()
+    glPopMatrix()
+    
+    #pillow right far
+    glColor3f(0.00,0.50,0.25)
+    glPushMatrix()
+    glTranslatef(0.5,0.5,6)
+    glRotatef(20, 0,0,1)
+    glScalef(0.1, 0.15, 0.48)
+    drawCube()
+    glPopMatrix()
+      
+    #blanket
+    glColor3f(0.67,0.80,0.00)
+    glPushMatrix()
+    glTranslatef(1.4,0.45,5.5)
+    #glRotatef(22, 0,0,1)
+    glScalef(0.5, 0.05, 0.95)
+    drawCube()
+    glPopMatrix()
+    
+    #blanket side left part
+    glColor3f(0.67,0.80,0.00)
+    glPushMatrix()
+    glTranslatef(1.4,-0.3,8.15)
+    #glRotatef(22, 0,0,1)
+    glScalef(0.5, 0.25, 0.05)
+    drawCube()
+    glPopMatrix()
+
+# def lamp():
+#     #Lamp *****************************************
+        
+#         #lamp base
+#         glColor3f(0,0,1)
+#         glPushMatrix()
+#         glTranslatef(.6,0.5,9.1)
+#         glScalef(0.07, 0.02, 0.07)
+#         drawCube()
+#         glPopMatrix()
+        
+#         #lamp stand
+#         glColor3f(1,0,0)
+#         glPushMatrix()
+#         glTranslatef(.7,0.35,9.2)
+#         glScalef(0.01, 0.2, 0.01)
+#         drawCube()
+#         glPopMatrix()
+        
+#         #lamp shade
+#         glColor3f(0.000, 0.000, 0.545)
+#         glPushMatrix()
+#         glTranslatef(.7,0.9,9.2)
+#         glScalef(0.08, 0.09, 0.08)
+#         drawCube()
+#         glPopMatrix()
+
 
 def cupboard():
     #Cupboard/Almari ************************************************************
         
         #cupboard
-        glColor3f(0.5,0.2,0.2) #0.3,0.1,0.0
+        glColor3f(0.00,0.33,0.40) #0.3,0.1,0.0
         glPushMatrix()
         glTranslatef(4,0,4.4)
         #glRotatef(22, 0,0,1)
@@ -222,9 +292,27 @@ def renderScene():
     glVertex3f(10.0, 0.0, -10.0)
     glEnd()
     
+    glPushMatrix()
+    glTranslatef(0,0,-13)
+    glScalef(1,2,1)
+    cupboard()#----------------------------------------------------------------cupboard
+    glPopMatrix()
+    
+    glPushMatrix()
+    glTranslatef(2,0,-13)
+    glScalef(1,2,1)
     cupboard()
+    glPopMatrix()
+    
+    glPushMatrix()
+    glTranslatef(3,0,-13)
+    glScalef(2,2,2)
+    glRotatef(-45,0,1,0)
+    bed()
+    glPopMatrix()
+
     # //wall
-    glColor3f(0.9294, 0.9216, 0.8353)
+    glColor3f(0.84,1.00,0.50)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, -10.0)
     glVertex3f(-10.0, 7.0, -10.0)
@@ -233,7 +321,7 @@ def renderScene():
     glEnd()
 
     # //wall
-    glColor3f(1.0, 0.851, 0.702)
+    glColor3f(0.84,1.00,0.50)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, -10.0)
     glVertex3f(-10.0, 7.0, -10.0)
@@ -242,7 +330,7 @@ def renderScene():
     glEnd()
 
     # //wall with door
-    glColor3f(1.0, 0.851, 0.702)
+    glColor3f(1.00,0.50,0.58)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, 10.0)
     glVertex3f(-10.0, 7.0, 10.0)
@@ -250,7 +338,7 @@ def renderScene():
     glVertex3f(-6.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(1.0, 0.851, 0.702)
+    glColor3f(1.00,0.50,0.58)
     glBegin(GL_QUADS)
     glVertex3f(-3.0, 0.0, 10.0)
     glVertex3f(-3.0, 7.0, 10.0)
@@ -258,7 +346,7 @@ def renderScene():
     glVertex3f(10.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(1.0, 0.851, 0.702)
+    glColor3f(1.00,0.50,0.58)
     glBegin(GL_QUADS)
     glVertex3f(-6.0, 7.0, 10.0)
     glVertex3f(-6.0, 5.0, 10.0)
@@ -285,7 +373,7 @@ def renderScene():
 
 
     # //wall
-    glColor3f(1.0, 0.851, 0.702)
+    glColor3f(0.84,1.00,0.50)
     glBegin(GL_QUADS)
     glVertex3f(10.0, 0.0, -10.0)
     glVertex3f(10.0, 7.0, -10.0)
@@ -293,7 +381,7 @@ def renderScene():
     glVertex3f(10.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(1.0, 0.851, 0.702)
+    glColor3f(0.84,1.00,0.50)
     glBegin(GL_QUADS)
     glVertex3f(10.0, 0.0, -10.0)
     glVertex3f(10.0, 7.0, -10.0)
@@ -360,24 +448,6 @@ def renderScene():
 	# glRotatef(-90.0, 0.0, 1.0, 0.0)
 	# cupboard.drawCupboard()
 	# glPopMatrix()
-
-	# // Draw blackboard
-    glColor3f(0.4, 0.2, 0.0)
-    glBegin(GL_QUADS)
-    glVertex3f(-6.0, 2.0, -9.99)
-    glVertex3f(-6.0, 5.5, -9.99)
-    glVertex3f(6.0, 5.5, -9.99)
-    glVertex3f(6.0, 2.0, -9.99)
-    glEnd()
-
-    glColor3f(0.149, 0.149, 0.149)
-    glBegin(GL_QUADS)
-    glVertex3f(-5.8, 2.2, -9.98)
-    glVertex3f(-5.8, 5.3, -9.98)
-    glVertex3f(5.8, 5.3, -9.98)
-    glVertex3f(5.8, 2.2, -9.98)
-    glEnd()
-
 
     # #Lamp *****************************************
         
@@ -593,7 +663,7 @@ glutInit()
 glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
 glutInitWindowPosition(0, 0)
 glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT)
-glutCreateWindow("Classroom")
+glutCreateWindow("Bedroom")
 
 # // register callbacks
 glutDisplayFunc(renderScene)
