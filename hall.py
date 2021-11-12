@@ -65,23 +65,62 @@ def drawCube():
     
     glEnd()
 
-# //Fan
-# Fan f
+def sofa1():
+    glColor3f(0.40,0.60,1.00)
+    glPushMatrix()
+    glTranslatef(-4,0,-3)
+    glScalef(2, 0.4, 0.8)
+    drawCube()
+    glPopMatrix()
 
-# def interactWithSnowman :
-	
-# 	char str1[] = "Hello! You seem to be the only student in class today."
-# 	int l1 = strlen(str1) // see how many characters are in text string.
-# 	glPushMatrix()
+    glColor3f(0.42,0.30,1.00)
+    glPushMatrix()
+    glTranslatef(-4,1,-3)
+    glScalef(2, 0.4, 0.2)
+    drawCube()
+    glPopMatrix()
 
-# 	glColor3f(0.0, 0.0, 0.0)
+    glColor3f(0.33,0.00,1.00)
+    glPushMatrix()
+    glTranslatef(-4.3,0,-3)
+    glScalef(0.1, 0.6, 0.9)
+    drawCube()
+    glPopMatrix()
 
-# 	glRasterPos3f(-9.6, 2.7, -2.8) // location to start printing text
-# 	for( int i=0 i < l1 i++) // loop until i is greater then l
-# 	{
-# 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str1[i]) // Print a character on the screen
-# 	}
-# 	glPopMatrix()
+    glColor3f(0.33,0.00,1.00)
+    glPushMatrix()
+    glTranslatef(1.87,0,-3)
+    glScalef(0.1, 0.6, 0.9)
+    drawCube()
+    glPopMatrix()
+
+def TV():
+    glColor3f(0,0,0)
+    glPushMatrix()
+    glTranslatef(8,1.7,4)
+    glScalef(0.03, 0.7, 1.2)
+    drawCube()
+    glPopMatrix()
+
+# def cirtable():
+#     glBegin(GL_CYLINERT)
+
+def tvtable():
+    glColor3f(0.10,0.00,0.30)
+    glPushMatrix()
+    glTranslatef(8,0.5,2.8)
+    glScalef(0.8, 0.2, 1.9)
+    drawCube()
+    glPopMatrix()    
+
+def vase():
+    glColor3f(0.10,0.00,0.30)
+    glPushMatrix()
+    glTranslatef(3.4,0,-2)
+    glScalef(0.2, 0.5, 0.2)
+    drawCube()
+    glPopMatrix()  
+
 
 def window():        
         #cupboard
@@ -152,55 +191,12 @@ def window():
     # glEnd()
      
 
-def bed():
-    #bed headboard
-    glColor3f(0.40,0.27,0.00)
-    glPushMatrix()
-    glScalef(0.1, 0.5, 0.9)
-    glTranslatef(-2,-0.5,6)
-    drawCube()
-    glPopMatrix()
-    
-    #bed body
-    glColor3f(0.824, 0.706, 0.549)
-    glPushMatrix()
-    glScalef(1, 0.2, 0.9) #1, 0.2, 0.9
-    glTranslatef(0,-0.5,6.2)
-    drawCube()
-    glPopMatrix()
-    
-    #pillow right far
-    glColor3f(0.00,0.50,0.25)
-    glPushMatrix()
-    glTranslatef(0.5,0.5,6)
-    glRotatef(20, 0,0,1)
-    glScalef(0.1, 0.15, 0.48)
-    drawCube()
-    glPopMatrix()
-      
-    #blanket
-    glColor3f(0.67,0.80,0.00)
-    glPushMatrix()
-    glTranslatef(1.4,0.45,5.5)
-    #glRotatef(22, 0,0,1)
-    glScalef(0.5, 0.05, 0.95)
-    drawCube()
-    glPopMatrix()
-    
-    #blanket side left part
-    glColor3f(0.67,0.80,0.00)
-    glPushMatrix()
-    glTranslatef(1.4,-0.3,8.15)
-    #glRotatef(22, 0,0,1)
-    glScalef(0.5, 0.25, 0.05)
-    drawCube()
-    glPopMatrix()
 
 def table():
     #table *****************************************
         
         #table base
-        glColor3f(0.17,0.20,0.00)
+        glColor3f(0.10,0.00,0.30)
         glPushMatrix()
         glTranslatef(.6,1.5,4.1)
         glScalef(0.8, 0.08, 0.8)
@@ -363,30 +359,32 @@ def renderScene():
     glVertex3f(10.0, 0.0, -10.0)
     glEnd()
     
-    glPushMatrix()
-    glTranslatef(0,0,-13)
-    glScalef(1,2,1)
-    cupboard()#----------------------------------------------------------------cupboard
-    glPopMatrix()
-    
-    glPushMatrix()
-    glTranslatef(2,0,-13)
-    glScalef(1,2,1)
-    cupboard()
-    glPopMatrix()
-    
-
-    window()
+    sofa1()
 
     glPushMatrix()
-    glTranslatef(3,0,-13)
-    glScalef(2,2,2)
-    glRotatef(-45,0,1,0)
-    bed()#----------------------------------------------------------------bed
+    glTranslatef(-6,0,2.9)
+    glRotatef(90,0,1,0)
+    sofa1()#----------------------------------------------------------------sofa
+    glPopMatrix()
+    # sofa2()
+    TV()#----------------------------------------------------------------TV
+    tvtable()
+
+    glPushMatrix()
+    glTranslatef(-6,0,-5)
+    glScalef(1.8,0.5,1.4)  
+    table()#----------------------------------------------------------------main table
+    glPopMatrix()
+
+
+    glPushMatrix()
+    glTranslatef(2,0,0)
+    glScalef(2,1,1)  
+    window()#----------------------------------------------------------------window
     glPopMatrix()
 
     # //wall
-    glColor3f(0.84,1.00,0.50)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, -10.0)
     glVertex3f(-10.0, 7.0, -10.0)
@@ -394,23 +392,50 @@ def renderScene():
     glVertex3f(10.0, 0.0, -10.0)
     glEnd()
 
-    glPushMatrix()
-    glTranslatef(5,0,-6)
-    glScalef(1,1,2)
-    table()#----------------------------------------------------------------table
-    glPopMatrix()
+    vase()
 
-    # //wall
-    glColor3f(0.84,1.00,0.50)
+    # ---------------------------------------------left wall
+    # glColor3f(1.00,0.90,0.70)
+    # glBegin(GL_QUADS)
+    # glVertex3f(-10.0, 0.0, -10.0)
+    # glVertex3f(-10.0, 7.0, -10.0)
+    # glVertex3f(-10.0, 7.0, 10.0)
+    # glVertex3f(-10.0, 0.0, 10.0)
+    # glEnd()
+
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
-    glVertex3f(-10.0, 0.0, -10.0)
-    glVertex3f(-10.0, 7.0, -10.0)
+    glVertex3f(-10.0, 0.0,-10.0)
+    glVertex3f(-10.0, 7.0,-10.0)
+    glVertex3f(-10.0, 7.0, 0.0)
+    glVertex3f(-10.0, 0.0, 0.0)
+    glEnd()
+
+    # glColor3f(1.00,0.90,0.70)
+    glBegin(GL_QUADS)
+    glVertex3f(-10.0, 7.0,0.0)
+    glVertex3f(-10.0, 5.0,0.0)
+    glVertex3f(-10.0, 5.0, 3.0)
+    glVertex3f(-10.0, 7.0, 3.0)
+    glEnd()
+
+    # glColor3f(1.00,0.90,0.70)
+    glBegin(GL_QUADS)
+    glVertex3f(-10.0, 0.0, 3.0)
+    glVertex3f(-10.0, 7.0, 3.0)
     glVertex3f(-10.0, 7.0, 10.0)
     glVertex3f(-10.0, 0.0, 10.0)
     glEnd()
 
-    # //wall with door
-    glColor3f(1.00,0.50,0.58)
+    glColor3f(0.4, 0.2, 0.0)
+    glLineWidth(30.0)
+    glBegin(GL_LINES)
+    glVertex3f(-10.01, 5.0, 0)
+    glVertex3f(-10.01, 5.0, 3)
+    glEnd()
+
+    # --------------------------------------------------------front wall
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, 10.0)
     glVertex3f(-10.0, 7.0, 10.0)
@@ -418,7 +443,7 @@ def renderScene():
     glVertex3f(-6.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(1.00,0.50,0.58)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-3.0, 0.0, 10.0)
     glVertex3f(-3.0, 7.0, 10.0)
@@ -426,7 +451,7 @@ def renderScene():
     glVertex3f(10.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(1.00,0.50,0.58)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-6.0, 7.0, 10.0)
     glVertex3f(-6.0, 5.0, 10.0)
@@ -453,7 +478,7 @@ def renderScene():
 
 
     # //wall
-    glColor3f(0.84,1.00,0.50)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(10.0, 0.0, -10.0)
     glVertex3f(10.0, 7.0, -10.0)
@@ -461,7 +486,7 @@ def renderScene():
     glVertex3f(10.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(0.84,1.00,0.50)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(10.0, 0.0, -10.0)
     glVertex3f(10.0, 7.0, -10.0)
@@ -477,138 +502,6 @@ def renderScene():
     glVertex3f(10.0, 7.0, 10.0)
     glVertex3f(-10.0, 7.0, 10.0)
     glEnd()
-
-    # # // Draw prof's chair
-    # Chair profChair
-    # glPushMatrix()
-    # glTranslatef( 6.0, 1.0, -9.0)
-    # glScalef(0.32, 0.32, 0.32)
-    # glRotatef(-30.0, 0.0, 1.0, 0.0)
-    # profChair.drawChair()
-    # glPopMatrix()
-
-    # # // Draw prof's table
-    # Table profTable
-    # glPushMatrix()
-    # glTranslatef( 6.0, 1.4, -7.6)
-    # glScalef(0.5, 0.5, 0.5)
-    # glRotatef(-30.0, 0.0, 1.0, 0.0)
-    # profTable.drawTable()
-    # glPopMatrix()
-
-    # # // Draw student chairs
-    # Chair studentChair[4][4]
-    # for (int i = -3 i <= 3 i+=2){
-    #     for (int j = -3 j <= 3 j+=2) {
-    #         glPushMatrix()
-    #         glTranslatef(i*2.0, 0.8, j * 2.0 + 2.2)
-    #         glScalef(0.25, 0.25, 0.25)
-    #         glRotatef(180.0, 0.0, 1.0, 0.0)
-    #         studentChair[i][j].drawChair()
-    #         glPopMatrix()
-    #     }
-
-	# # // Draw student tables
-	# Table studentTable[4][4]
-	# for (int i = -3 i <= 3 i+=2){
-	# 	for (int j = -3 j <= 3 j+=2) {
-	# 		glPushMatrix()
-	# 		glTranslatef(i*2.0 + 0.3, 1.2, j * 2.0 + 1.2)
-	# 		glScalef(0.4, 0.4, 0.4)
-	# 		// glRotatef(180.0, 0.0, 1.0, 0.0)
-	# 		studentTable[i][j].drawTable()
-	# 		glPopMatrix()
-	# 	}
-	# }
-
-	# // Draw cupboard
-	# Cupboard cupboard
-	# glPushMatrix()
-	# glTranslatef( 8.49, 0.0, -3.5)
-	# glRotatef(-90.0, 0.0, 1.0, 0.0)
-	# cupboard.drawCupboard()
-	# glPopMatrix()
-
-    # #table *****************************************
-        
-    #     #table base
-    # glColor3f(0,0,1)
-    # glPushMatrix()
-    # glTranslatef(.6,0.5,9.1)
-    # glScalef(0.07, 0.02, 0.07)
-    # drawCube()
-    # glPopMatrix()
-       
-    #     #table stand
-    # glColor3f(1,0,0)
-    # glPushMatrix()
-    # glTranslatef(.7,0.35,9.2)
-    # glScalef(0.01, 0.2, 0.01)
-    # drawCube()
-    # glPopMatrix()
-        
-    #     #table shade
-    # glColor3f(0.000, 0.000, 0.545)
-    # glPushMatrix()
-    # glTranslatef(.7,0.9,9.2)
-    # glScalef(0.08, 0.09, 0.08)
-    # drawCube()
-    # glPopMatrix()
-
-	# //Floor pattern
-	# glColor3f(0.149, 0.149, 0.149)
-	# glLineWidth(3.0)
-	# for(int i = 0 i < 20 i += 2)
-	# {
-	# 	glBegin(GL_LINES)
-	# 	glVertex3f(-10.0 + i, 0.001, -10.01)
-	# 	glVertex3f(-10.0 + i, 0.001, 10.01)
-	# 	glEnd()
-	# }
-	# for(int i = 0 i < 20 i += 2)
-	# {
-	# 	glBegin(GL_LINES)
-	# 	glVertex3f(-10.0, 0.001, -10.01 + i)
-	# 	glVertex3f(10.0, 0.001, -10.01 + i)
-	# 	glEnd()
-	# }
-
-	# //windows
-	# Window w
-	# w.drawWindow1()
-	# w.drawWindow2()
-	# w.drawWindowSill()
-	# glPushMatrix()
-	# glTranslatef( 0.0, 0.0, 8.0)
-	# w.drawWindowSill()
-	# glPopMatrix()
-
-	# //Draw Snowmen
-	# Snowman s
-	# glPushMatrix()
-	# glTranslatef(-9.7, 2.0, -3.0)
-	# glScalef(0.3, 0.3, 0.3)
-	# s.drawSnowMan()
-	# glPopMatrix()
-	
-	# if ( x < -8.0 && x > -9.0 && z < -1.0 && z > -2.0) {
-	# 	interactWithSnowman()
-	# }
-
-	
-	# glPushMatrix()
-	# glTranslatef(0.0, 6.0, 0.0)
-	# glScalef(0.3, 0.3, 0.3)
-	# f.drawFan()
-	# glPopMatrix()
-
-	# Shelf sh
-	# glPushMatrix()
-	# glTranslatef(8.99, 3.5, 4.0)
-	# glScalef(0.25, 0.25, 0.25)
-	# glRotatef(-90, 0.0, 1.0, 0.0)
-	# sh.drawShelf()
-	# glPopMatrix()
 	
     if(abs(mouseX) > 0.3):
         angle -= (0.004 * mouseX)
