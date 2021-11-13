@@ -386,7 +386,7 @@ def renderScene():
     glPopMatrix()
 
     # //wall
-    glColor3f(0.84,1.00,0.50)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, -10.0)
     glVertex3f(-10.0, 7.0, -10.0)
@@ -395,13 +395,13 @@ def renderScene():
     glEnd()
 
     glPushMatrix()
-    glTranslatef(5,0,-6)
-    glScalef(1,1,2)
+    glTranslatef(5,0,-4)
+    glScalef(1,0.8,1.5)
     table()#----------------------------------------------------------------table
     glPopMatrix()
 
     # //wall
-    glColor3f(0.84,1.00,0.50)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, -10.0)
     glVertex3f(-10.0, 7.0, -10.0)
@@ -410,7 +410,7 @@ def renderScene():
     glEnd()
 
     # //wall with door
-    glColor3f(1.00,0.50,0.58)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, 10.0)
     glVertex3f(-10.0, 7.0, 10.0)
@@ -418,7 +418,7 @@ def renderScene():
     glVertex3f(-6.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(1.00,0.50,0.58)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-3.0, 0.0, 10.0)
     glVertex3f(-3.0, 7.0, 10.0)
@@ -426,7 +426,7 @@ def renderScene():
     glVertex3f(10.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(1.00,0.50,0.58)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-6.0, 7.0, 10.0)
     glVertex3f(-6.0, 5.0, 10.0)
@@ -453,7 +453,7 @@ def renderScene():
 
 
     # //wall
-    glColor3f(0.84,1.00,0.50)
+    glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(10.0, 0.0, -10.0)
     glVertex3f(10.0, 7.0, -10.0)
@@ -461,12 +461,25 @@ def renderScene():
     glVertex3f(10.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(0.84,1.00,0.50)
+
+    glColor3f(0.4, 0.2, 0.0)
+    glLineWidth(30.0)
+    glBegin(GL_LINES)
+    glVertex3f(10.01, 5.2, -6)
+    glVertex3f(10.01, 5.2, -3)
+    glEnd()
+
     glBegin(GL_QUADS)
-    glVertex3f(10.0, 0.0, -10.0)
-    glVertex3f(10.0, 7.0, -10.0)
-    glVertex3f(10.0, 7.0, 10.0)
-    glVertex3f(10.0, 0.0, 10.0)
+    glVertex3f(9.91, 0.0,-6.0)
+    glVertex3f(9.91, 5.0,-6.0)
+    glVertex3f(9.91, 5.0,-3.0)
+    glVertex3f(9.91, 0.0, -3.0)
+    glEnd()
+
+    glColor3f(1,1,0)
+    glPointSize(8)
+    glBegin(GL_POINTS)
+    glVertex3f(9.87, 2.0,-5.5)
     glEnd()
 
     # //ceiling

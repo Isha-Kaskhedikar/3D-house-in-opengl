@@ -113,18 +113,74 @@ def tvtable():
     drawCube()
     glPopMatrix()    
 
+    glPushMatrix()
+    glTranslatef(8,4.9,5)
+    glScalef(0.2, 0.01, 1)
+    drawCube()
+    glPopMatrix()    
+
+    glPushMatrix()
+    glTranslatef(8,4.3,3)
+    glScalef(0.2, 0.01, 1)
+    drawCube()
+    glPopMatrix()    
+
 def vase():
     glColor3f(0.10,0.00,0.30)
     glPushMatrix()
     glTranslatef(3.4,0,-2)
-    glScalef(0.2, 0.5, 0.2)
+    glScalef(0.2, 0.4, 0.2)
     drawCube()
     glPopMatrix()  
+
+    glColor3f(0.00,0.90,0.30)
+    glPointSize(8)
+    glBegin(GL_POINTS)
+    glVertex3f(3.6, 3, -1.5) 
+    glVertex3f(3.5, 3.1, -1.5) 
+    glVertex3f(3.4, 3, -1.5)  
+    glVertex3f(3.8, 2, -1.5)
+    glVertex3f(3.7, 2.1, -1.5)
+    glVertex3f(3.6, 2, -1.5)
+    glEnd()
+
+    glColor3f(1,0.5,0)
+    glPointSize(8)
+    glBegin(GL_POINTS)
+    glVertex3f(3.3, 2.4, -1.5)
+    glVertex3f(3.2, 2.45, -1.5)
+    glVertex3f(3.1, 2.4, -1.5)
+    glVertex3f(4, 2.7, -1.5)
+    glVertex3f(3.9, 2.8, -1.5)
+    glVertex3f(3.8, 2.7, -1.5)
+    glEnd()
+  
+    glColor3f(0.30,0.05,0.00)
+    glLineWidth(3.0) 
+    glBegin(GL_LINES)
+    glVertex3f(3.5, 3, -1.5)
+    glVertex3f(3.5, 0, -1.5)
+    glEnd()
+
+    glBegin(GL_LINES)
+    glVertex3f(3.9, 2.7, -1.5)
+    glVertex3f(3.5, 0, -1.5)
+    glEnd()
+
+    glBegin(GL_LINES)
+    glVertex3f(3.2, 2.4, -1.5)
+    glVertex3f(3.9, 0, -1.5)
+    glEnd()
+
+    glBegin(GL_LINES)
+    glVertex3f(3.7, 2, -1.5)
+    glVertex3f(3.6, 1, -1.5)
+    glEnd()
 
 
 def window():        
         #cupboard
-    glColor3f(0.00,1,1) #0.3,0.1,0.0
+    glColor3f(0.00,0.84,1) #0.3,0.1,0.0
     glPushMatrix()
     glTranslatef(-4,2,-10)
         #glRotatef(22, 0,0,1)
@@ -156,7 +212,7 @@ def window():
     glVertex3f(2.0, 5, -9.9)
     glEnd()
 
-    #----------------HORIZONTAL PART---------------
+    #----------------HVERTICAL PART---------------
     glColor3f(0.25,0.28,0.28) #0.3,0.1,0.0
     glLineWidth(7.0)
     glBegin(GL_LINES)
@@ -176,8 +232,15 @@ def window():
     glColor3f(0.25,0.28,0.28) #0.3,0.1,0.0
     glLineWidth(7.0)
     glBegin(GL_LINES)
-    glVertex3f(-1.0, 2, -9.9)
-    glVertex3f(-1.0, 5, -9.9)
+    glVertex3f(-2.0, 2, -9.9)
+    glVertex3f(-2.0, 5, -9.9)
+    glEnd()
+
+    glColor3f(0.25,0.28,0.28) #0.3,0.1,0.0
+    glLineWidth(7.0)
+    glBegin(GL_LINES)
+    glVertex3f(0, 2, -9.9)
+    glVertex3f(0, 5, -9.9)
     glEnd()
 
     # glBegin(GL_LINES)
@@ -383,7 +446,7 @@ def renderScene():
     window()#----------------------------------------------------------------window
     glPopMatrix()
 
-    # //wall
+    # -----------------------------------------------------------window wall
     glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, -10.0)
@@ -407,22 +470,22 @@ def renderScene():
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0,-10.0)
     glVertex3f(-10.0, 7.0,-10.0)
-    glVertex3f(-10.0, 7.0, 0.0)
-    glVertex3f(-10.0, 0.0, 0.0)
+    glVertex3f(-10.0, 7.0, -6.0)
+    glVertex3f(-10.0, 0.0, -6.0)
     glEnd()
 
     # glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
-    glVertex3f(-10.0, 7.0,0.0)
-    glVertex3f(-10.0, 5.0,0.0)
-    glVertex3f(-10.0, 5.0, 3.0)
-    glVertex3f(-10.0, 7.0, 3.0)
+    glVertex3f(-10.0, 7.0,-6.0)
+    glVertex3f(-10.0, 5.0,-6.0)
+    glVertex3f(-10.0, 5.0,-3.0)
+    glVertex3f(-10.0, 7.0, -3.0)
     glEnd()
 
     # glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
-    glVertex3f(-10.0, 0.0, 3.0)
-    glVertex3f(-10.0, 7.0, 3.0)
+    glVertex3f(-10.0, 0.0, -3.0)
+    glVertex3f(-10.0, 7.0, -3.0)
     glVertex3f(-10.0, 7.0, 10.0)
     glVertex3f(-10.0, 0.0, 10.0)
     glEnd()
@@ -430,11 +493,11 @@ def renderScene():
     glColor3f(0.4, 0.2, 0.0)
     glLineWidth(30.0)
     glBegin(GL_LINES)
-    glVertex3f(-10.01, 5.0, 0)
-    glVertex3f(-10.01, 5.0, 3)
+    glVertex3f(-10.01, 5.0, -6)
+    glVertex3f(-10.01, 5.0, -3)
     glEnd()
 
-    # --------------------------------------------------------front wall
+    # --------------------------------------------------------entrance wall
     glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, 10.0)
@@ -477,24 +540,39 @@ def renderScene():
     glEnd()
 
 
-    # //wall
+    # -----------------------------------------------------------right wall
     glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
-    glVertex3f(10.0, 0.0, -10.0)
-    glVertex3f(10.0, 7.0, -10.0)
+    glVertex3f(10.0, 0.0,-10.0)
+    glVertex3f(10.0, 7.0,-10.0)
+    glVertex3f(10.0, 7.0, -6.0)
+    glVertex3f(10.0, 0.0, -6.0)
+    glEnd()
+
+    # glColor3f(1.00,0.90,0.70)
+    glBegin(GL_QUADS)
+    glVertex3f(10.0, 7.0,-6.0)
+    glVertex3f(10.0, 5.0,-6.0)
+    glVertex3f(10.0, 5.0,-3.0)
+    glVertex3f(10.0, 7.0, -3.0)
+    glEnd()
+
+    # glColor3f(1.00,0.90,0.70)
+    glBegin(GL_QUADS)
+    glVertex3f(10.0, 0.0, -3.0)
+    glVertex3f(10.0, 7.0, -3.0)
     glVertex3f(10.0, 7.0, 10.0)
     glVertex3f(10.0, 0.0, 10.0)
     glEnd()
 
-    glColor3f(1.00,0.90,0.70)
-    glBegin(GL_QUADS)
-    glVertex3f(10.0, 0.0, -10.0)
-    glVertex3f(10.0, 7.0, -10.0)
-    glVertex3f(10.0, 7.0, 10.0)
-    glVertex3f(10.0, 0.0, 10.0)
+    glColor3f(0.4, 0.2, 0.0)
+    glLineWidth(30.0)
+    glBegin(GL_LINES)
+    glVertex3f(10.01, 5.0, -6)
+    glVertex3f(10.01, 5.0, -3)
     glEnd()
 
-    # //ceiling
+    # --------------------------------------------------------------ceiling
     glColor3f(0.95, 0.95, 0.95)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 7.0, -10.0)
