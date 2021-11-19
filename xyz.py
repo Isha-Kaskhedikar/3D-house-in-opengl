@@ -102,8 +102,6 @@ def TV():
     drawCube()
     glPopMatrix()
 
-# def cirtable():
-#     glBegin(GL_CYLINERT)
 
 def tvtable():
     glColor3f(0.10,0.00,0.30)
@@ -753,8 +751,6 @@ def TV():
     glPopMatrix()
     # test2.renderScene()
 
-# def cirtable():
-#     glBegin(GL_CYLINERT)
 
 def tvtable():
     glColor3f(0.10,0.00,0.30)
@@ -1118,7 +1114,8 @@ def fridge():
     glScalef(1,1,1)
         # /*-----------Fridge------------*/
     glPushMatrix()
-    glScalef(5,5,5)
+    glScalef(5,2.72,5)
+    glTranslatef(0,0.5,0)
     glPushMatrix()
     glColor3f(0.1,0.1,0.1)
     glTranslatef(1.75,0,-1.5)
@@ -1133,7 +1130,7 @@ def fridge():
     glTranslatef(0.0,1.35,0.0)
     glScalef(5,2,5)
     glPushMatrix()
-    glColor3f(1.1,0.1,0.1)
+    glColor3f(0.5,0.5,0.5)
     glTranslatef(1.75,1.17,-1.5)
     glScalef(0.5,0.7,0.5)
     glutSolidCube(1)
@@ -1268,17 +1265,8 @@ def renderkitchen():
     glVertex3f(7.0+i, 0.0, -10.0)
     glEnd()
     
-    # glColor3f(0.00,0.84,1) #0.3,0.1,0.0 --------------------------------------window
-    glPushMatrix()
-    # glTranslatef(-4,2,-10)
-        #glRotatef(22, 0,0,1)
-    # glScalef(2, 1, 0.03)
-    # drawCube()
-    window()
-    glPopMatrix()
-    
 
-    # -----------------------------------------------------------window wall
+    # -----------------------------------------------------------cabinet wall
     glColor3f(1.00,0.90,0.70)
     glBegin(GL_QUADS)
     glVertex3f(-10.0+i, 0.0, -10.0)
@@ -1364,64 +1352,24 @@ def renderkitchen():
     kitchOven()
     glPopMatrix()
 
-    # glPushMatrix()
-    # glTranslatef(1.74,0.29,-0.65)
-    # glScalef(0.6,0.6,0.5)
-    # kitchenCeilingCabinet2()
-    # glPopMatrix()
-
-    glPushMatrix()#Stove
-    glTranslatef(-17.8+i,1.2,-0.6)
-    glScalef(0.4,0.03,0.1)
+    glPushMatrix()  #--------------------------------------------Stove
+    glTranslatef(-17.69+i,0.285,-1.76)
+    glScalef(0.31,0.05,0.4)
     glColor3f(0.0,0.0,0.0)
     glutSolidCube(1)
     glPopMatrix()
 
-    glPushMatrix()
-    glTranslatef(-17.8+i,1.22,-1.76)
-    glScalef(0.3,0.03,0.1)
-    glColor3f(0.15,0.15,0.15)
+    glPushMatrix()  #--------------------------------------------Stove grey part
+    glTranslatef(-17.69+i,0.315,-1.76)
+    glScalef(0.31,0.01,0.4)
+    glColor3f(0.5,0.5,0.5)
     glutSolidCube(1)
     glPopMatrix()
-    glPopMatrix()
     
-    # glPushMatrix()
-    # glScalef(5.0,5.0,5.0)
-    # # glTranslatef(0.5,0,0.2)
-    # glPushMatrix()#------------------------------------------dining table
-    # glTranslatef(0.6+i,0.2,0.5)
-    # glRotatef(90,0,1,0)
-    # glScalef(1.5,0.5,0.5)
-    # glTranslatef(0,0.2,0)
-    # chair2()
-    # glPopMatrix()
-    # glPushMatrix()#------------------------------------------dining table
-    # glTranslatef(0.6+i,0.2,0.5)
-    # # glRotatef(90,0,0,1)
-    # glScalef(1.5,0.5,0.5)
-    # glTranslatef(0+i,0.2,0)
-    # chair2()
-    # glPopMatrix()
-    # glPushMatrix()#------------------------------------------dining table
-    # glTranslatef(0.6+i,0.2,0.5)
-    # glRotatef(180,0,1,0)
-    # glScalef(1.5,0.5,0.5)
-    # glTranslatef(0+i,0.2,0)
-    # chair2()
-    # glPopMatrix()
-    # glPushMatrix()#------------------------------------------dining table
-    # glTranslatef(0.6+10,0.2,0.5)
-    # glRotatef(-90,0,1,0)
-    # glScalef(1.5,0.5,0.5)
-    # glTranslatef(0,0.2,0)
-    # chair2()
-    # glPopMatrix()
-    # glPopMatrix()
-
+    glPopMatrix()
 
     glPushMatrix()
     glTranslatef(-17.4+i,0.0,9.0)
-    # glScalef(1.5,0.5,1.5)
     fridge()
     glPopMatrix()
 
@@ -1481,6 +1429,47 @@ def renderkitchen():
     glVertex3f(7.0+i, 7.0, 8.0)
     glVertex3f(7.0+i, 0.0,8.0)
     glEnd()
+
+    glPushMatrix()   #--------------------------- window
+    glTranslatef(15,0,0)
+    glRotatef(270,0,1,0)
+    window() 
+    glPopMatrix()
+
+        
+    glPushMatrix()
+    glScalef(5.0,5.0,5.0)
+    glTranslatef(4.0,0.2,0.2)
+    glPushMatrix()#------------------------------------------dining table
+    # glTranslatef(0.6,0.2,0.5)
+    glRotatef(90,0,1,0)
+    glScalef(1.5,0.5,0.5)
+    # glTranslatef(0,0.2,0)
+    chair2()
+    glPopMatrix()
+    glPushMatrix()#------------------------------------------dining table
+    # glTranslatef(0.6,0.2,0.5)
+    # glRotatef(90,0,0,1)
+    glScalef(1.5,0.5,0.5)
+    # glTranslatef(0,0.2,0)
+    chair2()
+    glPopMatrix()
+    glPushMatrix()#------------------------------------------dining table
+    # glTranslatef(0.6,0.2,0.5)
+    glRotatef(180,0,1,0)
+    glScalef(1.5,0.5,0.5)
+    # glTranslatef(0+i,0.2,0)
+    chair2()
+    glPopMatrix()
+    glPushMatrix()#------------------------------------------dining table
+    # glTranslatef(0.6+10,0.2,0.5)
+    glRotatef(-90,0,1,0)
+    glScalef(1.5,0.5,0.5)
+    # glTranslatef(0,0.2,0)
+    chair2()
+    glPopMatrix()
+    glPopMatrix()
+
 
     # --------------------------------------------------------------ceiling
     glColor3f(0.95, 0.95, 0.95)
