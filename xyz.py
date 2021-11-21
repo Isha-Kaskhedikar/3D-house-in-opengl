@@ -6,19 +6,19 @@ import math
 WINDOW_WIDTH =1000
 WINDOW_HEIGHT =1000
 
-# // angle of rotation for the camera direction
+# # angle of rotation for the camera direction
 angle = 0.0
 yAngle = 0.0
-# // actual vector representing the camera's direction
+# # actual vector representing the camera's direction
 lx = 0.0
 ly = 0.0 
 lz = -1.0
-# // XZ position of the camera
+# # XZ position of the camera
 x = -5.0
 z = 18.0
 roll = 0.0
-
-# //for mouse movements
+rotAngle=0.0
+# #for mouse movements
 halfWidth = (float)(WINDOW_WIDTH/2.0)
 halfHeight = (float)(WINDOW_HEIGHT/2.0)
 mouseX = 0.0
@@ -561,19 +561,19 @@ def cupboard():
 
 def renderScene():
     # global angle,yAngle,lx,ly,lz,mouseX,mouseY
-    # // Clear Color and Depth Buffers
+    # # Clear Color and Depth Buffers
     p=8.9
     q=-20
     # glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-    # // Reset transformations
+    # # Reset transformations
     glLoadIdentity()
-    # // Set the camera
+    # # Set the camera
     gluLookAt(x, 2.5, z, x + lx, 2.5 + ly, z + lz, roll + 0.0, 2.5, 0.0)
     
     glPushMatrix()
     glRotatef(90,0,1,0)
-    # // Draw floor
+    # # Draw floor
     glColor3f(0.7, 0.7, 0.7)
     glBegin(GL_QUADS)
     glVertex3f(-7.0+p, 0.0, -10.0+q)
@@ -621,7 +621,7 @@ def renderScene():
     bedtable()#----------------------------------------------------------------bedtable
     glPopMatrix()
 
-    # //wall
+    # #wall
     glColor3f(0.75,0.93,0.81)
     glBegin(GL_QUADS)
     glVertex3f(-7.0+p, 0.0, -10.0+q)
@@ -630,7 +630,7 @@ def renderScene():
     glVertex3f(-7.0+p, 0.0, 10.0+q)
     glEnd()
 
-    # //wall with door
+    # #wall with door
     glColor3f(0.75,0.93,0.81)
     glBegin(GL_QUADS)
     glVertex3f(-7.0+p, 0.0, 9.8+q)
@@ -703,7 +703,7 @@ def renderScene():
     glVertex3f(9.87+p, 2.0,-5.5+q)
     glEnd()
 
-    # //ceiling
+    # #ceiling
     glColor3f(0.95, 0.95, 0.95)
     glBegin(GL_QUADS)
     glVertex3f(-10.0+p, 7.0, -10.0+q)
@@ -1140,9 +1140,9 @@ def fridge():
     glPushMatrix()
     glScalef(1,1,1)
     glPushMatrix()
-    glColor3ub(119, 119, 119)
-    glTranslatef(-0.125,0.6025,0.04)
-    glScalef(0.025,0.2,0.25)
+    glColor3f(0.0, 0.0, 0.0)
+    glTranslatef(10.0,3.75,-6.55)
+    glScalef(0.1,0.5,-0.25)
     glutSolidCube(1)
     glPopMatrix()
     glPopMatrix()
@@ -1151,12 +1151,51 @@ def fridge():
     glPushMatrix()
     glScalef(1,1,1)
     glPushMatrix()
-    glColor3ub(119, 119, 119)
-    glTranslatef(-0.125,0.3025,0.04)
-    glScalef(0.025,0.25,0.25)
+    glColor3f(0.5, 0.5, 0.5)
+    glTranslatef(10.0,2.3025,-6.55)
+    glScalef(0.1,1.2,-0.25)
     glutSolidCube(1)
     glPopMatrix()
     glPopMatrix()
+
+def fan():
+    global rotAngle
+    glPushMatrix()
+
+    glRotatef(rotAngle, 0.0, 1.0, 0.0)
+    glPushMatrix()
+    glScalef(0.5,0.05,0.5)
+    glColor3f(0.0,0.0,0.0)
+    glutSolidSphere(1,32,32)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(0,0,1.3)
+    glScalef(0.5,0.05,3)
+    glColor3f(0.0,0.0,0.0)
+    glutSolidCube(1)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(1.3,0,1.7)
+    glColor3f(0.0,0.0,0.0)
+    glRotatef(40,0,1,0)
+    glScalef(0.5,0.05,3)
+    glTranslatef(0,0,-1.3)
+    glutSolidCube(1)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(-1.3,0,1.7)
+    glColor3f(0.0,0.0,0.0)
+    glRotatef(-40,0,1,0)
+    glScalef(0.5,0.05,3)
+    glTranslatef(0,0,-1.3)
+    glutSolidCube(1)
+    glPopMatrix()
+
+    glPopMatrix()
+
 
 
 def kitchenCeilingCabinet():
@@ -1190,8 +1229,6 @@ def kitchenCeilingCabinet():
     glutSolidCube(1)
     glPopMatrix()
 
-
-    
 def kitchOven():
     glPushMatrix()
     glScalef(0.6,1,0.6)
@@ -1244,19 +1281,19 @@ def kitchOven():
 
 def renderkitchen():
     global angle,yAngle,lx,ly,lz,mouseX,mouseY
-    # # // Clear Color and Depth Buffers
+    # # # Clear Color and Depth Buffers
 
     # glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     i=20
     a=4
-    # // Reset transformations
+    # # Reset transformations
     glLoadIdentity()
-    # // Set the camera
+    # # Set the camera
     gluLookAt(x, 2.5, z,
         x + lx, 2.5 + ly, z + lz,
         roll + 0.0, 2.5, 0.0)
 
-    # // Draw floor
+    # # Draw floor
     glColor3f(0.7, 0.7, 0.7)
     glBegin(GL_QUADS)
     glVertex3f(-10.0+i, 0.0, -10.0)
@@ -1300,6 +1337,12 @@ def renderkitchen():
     glColor3f(0.0,0.4,0.5)
     kitchenCeilingCabinet()    #---------------------down right
     glPopMatrix()
+    # glPushMatrix()
+    # glTranslatef(5.14+i,1.1,-9.7)
+    # glScalef(4.02,1.8,3.4)
+    # glColor3f(0.0,0.4,0.5)
+    # kitchenCeilingCabinet()    #---------------------down right single
+    # glPopMatrix()
    
     glPushMatrix()
     glTranslatef(1.5+i,9.2,-9.7)
@@ -1431,7 +1474,7 @@ def renderkitchen():
     glEnd()
 
     glPushMatrix()   #--------------------------- window
-    glTranslatef(15,0,0)
+    glTranslatef(17.01,0,0)
     glRotatef(270,0,1,0)
     window() 
     glPopMatrix()
@@ -1491,21 +1534,20 @@ def renderkitchen():
         ly = math.math.sin(yAngle)
 
 
-
 def renderScene1():
-    global angle,yAngle,lx,ly,lz,mouseX,mouseY
-    # // Clear Color and Depth Buffers
+    global angle,yAngle,lx,ly,lz,mouseX,mouseY,rotAngle
+    # # Clear Color and Depth Buffers
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-    # // Reset transformations
+    # # Reset transformations
     glLoadIdentity()
-    # // Set the camera
+    # # Set the camera
     gluLookAt(x, 2.5, z,
         x + lx, 2.5 + ly, z + lz,
         roll + 0.0, 2.5, 0.0)
 
-    # // Draw floor
+    # # Draw floor
     glColor3f(0.7, 0.7, 0.7)
     glBegin(GL_QUADS)
     glVertex3f(-10.0, 0.0, -10.0)
@@ -1672,10 +1714,12 @@ def renderScene1():
     glVertex3f(10.0, 7.0, 10.0)
     glVertex3f(-10.0, 7.0, 10.0)
     glEnd()
+    glPushMatrix()
+    glTranslatef(-1.5,7,0)
+    fan()
+    glPopMatrix()
 
     glPushMatrix()
-    # glRotatef(90,1,1,0)
-    # glTranslatef(20,0,0)
     renderScene() # --------------------------------------------------------------bedroom
     glPopMatrix()
 
@@ -1697,10 +1741,9 @@ def renderScene1():
     glutSwapBuffers()
 
 
-# // Handles the events triggered when one of the arrow keys are pressed.
-# // @param key : key pressed
-# // @param xx : x coordinate of mouse position
-# // @param yy : y coordinate of mouse position
+# # @param key : key pressed
+# # @param xx : x coordinate of mouse position
+# # @param yy : y coordinate of mouse position
 def processSpecialKeys(key,xx,yy):
     global x,z,angle,lx,lz
 
@@ -1722,17 +1765,15 @@ def processSpecialKeys(key,xx,yy):
 
 
 
-# // Handles the events triggered when any key on the keyboard is pressed.
-# //Specifically, handles w,a,s,d and Esc.
-# // moves the camera frward, backward and sideways.
-# // @param key : key pressed
-# // @param xx : x coordinate of mouse position
-# // @param yy : y coordinate of mouse position
+# # Handles the events triggered when any key on the keyboard is pressed.
+# #Specifically, handles w,a,s,d and Esc.
+# # moves the camera frward, backward and sideways.
+# # @param key : key pressed
+# # @param xx : x coordinate of mouse position
+# # @param yy : y coordinate of mouse position
 def processNormalKeys(key,xx,yy):
     global x,z,roll,lx,ly,lz,angle
     fraction = 0.1
-    print('keyss')
-    print(key)
     if key == b'w' or key ==b'g':
         x += lx * fraction
         z += lz * fraction
@@ -1753,11 +1794,10 @@ def processNormalKeys(key,xx,yy):
     if (key == 27):
         exit(0)
 
-
-#  // Handles the events triggered when the mouse is moved in the window area. 
-# // Handles yaw and pitch of the camera.
-# // @param xx : x coordinate of mouse position
-# // @param yy : y coordinate of mouse position
+#   Handles the events triggered when the mouse is moved in the window area. 
+#  Handles yaw and pitch of the camera.
+#  @param xx : x coordinate of mouse position
+#  @param yy : y coordinate of mouse position
 def processMouseMovement(xx,yy):
 
     global angle,yAngle,lx,lz,ly 
@@ -1772,67 +1812,65 @@ def processMouseMovement(xx,yy):
     ly = math.sin(yAngle)
 
 
-#  // Adjusts the viewport sie when the window size is changed and sets the projection.
-#  // @param w : new width of window
-#  // @param h : new height of window
+def animate():
+    global rotAngle
+    if  z<=14.75:
+        rotAngle+=1.5
+    glutPostRedisplay()
+
+#   Adjusts the viewport sie when the window size is changed and sets the projection.
+#   @param w : new width of window
+#   @param h : new height of window
 def changeSize(w, h) :
 
-	# // Prevent a divide by zero, when window is too short
-	# // (you cant make a window of zero width).
+	# # Prevent a divide by zero, when window is too short
+	# # (you cant make a window of zero width).
 	if (h == 0):
 		h = 1
 	ratio = w * 1.0 / h
 
-	# // Use the Projection Matrix
+	# # Use the Projection Matrix
 	glMatrixMode(GL_PROJECTION)
 
-	# // Reset Matrix
+	# # Reset Matrix
 	glLoadIdentity()
 
-	# // Set the viewport to be the entire window
+	# # Set the viewport to be the entire window
 	glViewport(0, 0, w, h)
 	halfWidth = (float)(w/2.0)
 	halfHeight = (float)(h/2.0)
 
-	# // Set the correct perspective.
+	# # Set the correct perspective.
 	gluPerspective(45.0, ratio, 0.1, 100.0)
 
-	# // Get Back to the Modelview
+	# # Get Back to the Modelview
 	glMatrixMode(GL_MODELVIEW)
 
 
-# void animate () {
-
-#     f.rotateFan()
-
-#     /* refresh screen */
-#     glutPostRedisplay()
-# }
 
 
 
-# // init GLUT and create window
+# init GLUT and create window
 glutInit()
 glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
 glutInitWindowPosition(0, 0)
 glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT)
 glutCreateWindow("HOUSE")
 
-# // register callbacks
+# register callbacks
 
 glutDisplayFunc(renderScene1)
-
 glutReshapeFunc(changeSize)
-# glutIdleFunc(animate)
+glutDisplayFunc(animate)
 glutKeyboardFunc(processNormalKeys)
 glutSpecialFunc(processSpecialKeys)
 glutIdleFunc(renderScene1)
 glutPassiveMotionFunc(processMouseMovement)
 
-# // OpenGL init
+# # OpenGL init
 glEnable(GL_DEPTH_TEST)
 
-# // enter GLUT event procesmath.sing cycle
+# # enter GLUT event procesmath.sing cycle
 glutMainLoop()
 
 
