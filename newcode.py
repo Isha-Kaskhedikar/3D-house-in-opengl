@@ -1060,10 +1060,35 @@ def renderkitchen():
     kitchenCeilingCabinet()
     glPopMatrix()
 
+    glPushMatrix()
+    glTranslatef(5.2+i,3.38,-9.7)
+    glScalef(4.5,5.0,3.1)
+    glColor3f(0.0,0.4,0.5)
+    kitchenCeilingCabinet()
+    glPopMatrix()               #----------------------------sink 
+   
+    glPushMatrix()
+    glTranslatef(5.2+i,2.70,-9.9)         
+    glScalef(3.8,0.15,3.1)
+    glColor3f(0.0,0.0,0.0)
+    glutSolidCube(1)
+    glPopMatrix()  
+
+    glPushMatrix()
+    glTranslatef(5.2+i,3.5,-9.7)         
+    glScalef(0.3,0.5,1.5)                      #--------------------sink tap
+    glColor3f(0.5,0.5,0.5)
+    glutSolidCube(1)
+    glPopMatrix() 
+    glPushMatrix()
+    glTranslatef(5.2+i,3.2,-9.0)         
+    glScalef(0.3,0.2,0.2)
+    glutSolidCube(1)
+    glPopMatrix()
+
     
     glPushMatrix()
     glScalef(8.0,8.0,5.0)
-    
     glPushMatrix()
     glTranslatef(-17.69+i,0.32,-1.76)
     glScalef(0.39,0.4,0.5)
@@ -1550,4 +1575,3 @@ glEnable(GL_DEPTH_TEST)
 
 # # enter GLUT event procesmath.sing cycle
 glutMainLoop()
-
