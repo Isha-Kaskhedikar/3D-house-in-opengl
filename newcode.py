@@ -6,7 +6,6 @@ import math
 WINDOW_WIDTH =1000
 WINDOW_HEIGHT =1000
 
-
 # # angle of rotation for the camera direction
 angle = 0.0
 yAngle = 0.0
@@ -777,7 +776,7 @@ def chair2():
     glTranslatef(0.275,0.4,0)
     glRotatef(80,0,0,1)
     glScalef(0.2,1.1,1)
-    glColor3f(0, 20, 155)
+    glColor3f(0.0,0.4,0.5)
     glScalef(1.3,0.05,0.65)
     glutSolidCube(1)
     glPopMatrix()
@@ -1447,24 +1446,7 @@ def renderScene1():
 # # @param key : key pressed
 # # @param xx : x coordinate of mouse position
 # # @param yy : y coordinate of mouse position
-def processSpecialKeys(key,xx,yy):
-    global x,z,angle,lx,lz
 
-    fraction = 0.1
-
-    if GLUT_KEY_LEFT:
-        x += math.sin(angle - math.pi/2.0) * fraction
-        z += -math.cos(angle - math.pi/2.0) * fraction
-    if GLUT_KEY_RIGHT:
-        x += math.sin(math.pi/2.0 + angle) * fraction
-        z += -math.cos(math.pi/2.0 + angle) * fraction
-    if GLUT_KEY_UP:
-        x += lx * fraction
-        z += lz * fraction
-    if GLUT_KEY_DOWN:
-        x -= lx * fraction
-        z -= lz * fraction
-		
 
 
 
@@ -1515,7 +1497,7 @@ def processMouseMovement(xx,yy):
     ly = math.sin(yAngle)
 
 
-def animate():
+def animate(): #---------------------------for fan
     global rotAngle
     if  z<=14.75:
         rotAngle+=1.5
@@ -1566,7 +1548,6 @@ glutDisplayFunc(renderScene1)
 glutReshapeFunc(changeSize)
 glutDisplayFunc(animate)
 glutKeyboardFunc(processNormalKeys)
-glutSpecialFunc(processSpecialKeys)
 glutIdleFunc(renderScene1)
 glutPassiveMotionFunc(processMouseMovement)
 
