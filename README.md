@@ -15,7 +15,7 @@ Scope:
 Drawing a 3D house model will help architectures or house owners get a better idea about how the house is going to look like. It is easy to build, helps in better use of the area by proper designing and gives a room for new innovations and ideas. This can then be taken as a base for visualizing other places like classrooms, malls, airports etc.            
 
 How to run the Code:                                                                                                                                                               
-Just copy the code from main '.py' file or fork our repository and run the same file and you will get to see the cute little flat that we have built. Just ensure you have prerequisites like openGL library installed. Also since we have implemented it in python, also ensure you have download it.                                                         
+Just copy the code from main 'final.py' file or fork our repository and run the same file and you will get to see the cute little flat that we have built. Just ensure you have prerequisites like openGL library installed. Also since we have implemented it in python, also ensure you have download it.                                                         
 
 References:                                                                                                                                                                         
 https://youtu.be/exQ43PFWJBU                                                                                                                                                       
