@@ -1441,14 +1441,10 @@ def processNormalKeys(key,xx,yy):
     if (key == 27):
         exit(0)
 
-#   Handles the events triggered when the mouse is moved in the window area. 
-#  Handles yaw and pitch of the camera.
-#  @param xx : x coordinate of mouse position
-#  @param yy : y coordinate of mouse position
+#camera and mouse
 def processMouseMovement(xx,yy):
-    #halfwidth - how much amount to move mouse
     global angle,yAngle,lx,lz,ly 
-    mouseX = (float)(halfWidth - xx)/halfWidth
+    mouseX = (float)(halfWidth - xx)/halfWidth       #halfwidth - how much amount to move mouse
     mouseY = (float)(halfHeight - yy)/halfHeight
     angle -= (0.005 * mouseX)
     lx = math.sin(angle) #to specify right left angle
@@ -1466,8 +1462,6 @@ def animate(): #---------------------------for fan
     glutPostRedisplay()
 
 #   Adjusts the viewport sie when the window size is changed and sets the projection.
-#   @param w : new width of window
-#   @param h : new height of window
 def changeSize(w, h) :
 # 	if (h == 0):
 # 		h = 1
@@ -1482,8 +1476,8 @@ def changeSize(w, h) :
 	halfWidth = (float)(w/2.0)
 	halfHeight = (float)(h/2.0)
 
-	# # Set the correct perspective. (view angle, aspect ratio, how near and far apart you can see)
-	gluPerspective(45.0, ratio, 0.1, 100.0)
+	# # Set the correct perspective.     
+	gluPerspective(45.0, ratio, 0.1, 100.0)  #(view angle, aspect ratio, how near and far apart you can see)
 
 	# # Get Back to the Modelview
 	glMatrixMode(GL_MODELVIEW)
